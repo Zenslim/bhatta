@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Our Practice | 103 Medicentre Durban",
+  title: "About Our Practice | Dr. Bhatta - 103 Medicentre Durban",
   description: "Learn about our dedicated medical team and quality healthcare services in Durban Central. Welcoming both walk-ins and scheduled appointments.",
 };
 
@@ -31,11 +31,11 @@ export default function AboutPage() {
                 Our Medical Team
               </h2>
               <p className="mt-4 text-lg font-medium text-[#005eb8]">
-                Patient-Centered General Practice
+                Patient-Centered General & Integrative Practice
               </p>
               <div className="mt-6 space-y-4 text-slate-600">
                 <p>
-                  Operating from our primary facility at 103 Medicentre, our practice is 
+                  Operating from our primary facility at Ismail C Meer Street, our practice is 
                   built on a foundation of quality medical services tailored for patients 
                   of all ages. We understand that clinical excellence goes hand-in-hand 
                   with accessibility, which is why we structure our care around the 
@@ -49,10 +49,11 @@ export default function AboutPage() {
                   private rates.
                 </p>
                 <p>
-                  At 103 Medicentre, our clinical approach looks past isolated symptoms to 
-                  treat the individual as a whole. By balancing meticulous medical expertise 
-                  with genuine empathy, we maintain a welcoming environment where you can 
-                  discuss your health concerns with complete confidence.
+                  Our clinical approach looks past isolated symptoms to treat the individual 
+                  as a whole, recognizing underlying mechanisms to support systemic health. 
+                  By balancing meticulous medical expertise with genuine empathy, we maintain 
+                  a welcoming environment where you can discuss your health concerns with 
+                  complete confidence.
                 </p>
               </div>
             </div>
@@ -76,8 +77,8 @@ export default function AboutPage() {
                           />
                         </svg>
                       </div>
-                      <p className="text-2xl font-bold">103 Medicentre</p>
-                      <p className="mt-2 text-white/80">General Practitioner Services</p>
+                      <p className="text-2xl font-bold">Room 103 Medicentre</p>
+                      <p className="mt-2 text-white/80">Dr. Bhatta</p>
                       <p className="mt-4 text-sm text-white/60">
                         Comprehensive Family Medicine & Primary Healthcare
                       </p>
@@ -218,8 +219,8 @@ export default function AboutPage() {
                 Accessible Facility
               </h3>
               <p className="mt-3 text-slate-600">
-                Fully optimized wheelchair access combined with secure parking facilities across the street 
-                at City Hospital.
+                Fully optimized wheelchair access combined with secure, multi-story street accessibility 
+                right in the medical district.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -363,14 +364,14 @@ export default function AboutPage() {
             </div>
             <div className="mt-12 lg:mt-0">
               <div className="rounded-2xl bg-gradient-to-br from-[#005eb8] to-[#00a499] p-8 text-white">
-                <h3 className="text-2xl font-bold">Visit Us Today</h3>
+                <h3 className="text-2xl font-bold">Practice Information</h3>
                 <p className="mt-4 text-white/90">
-                  We welcome both appointments and walk-in patients. Contact us to schedule your consultation or simply visit our practice during operating hours.
+                  We welcome both appointments and walk-in patients. Contact us via phone, WhatsApp, or email to schedule your consultation.
                 </p>
-                <div className="mt-8 space-y-4">
-                  <div className="flex items-center gap-3">
+                <div className="mt-8 space-y-5">
+                  <div className="flex items-start gap-3">
                     <svg
-                      className="h-6 w-6"
+                      className="h-6 w-6 flex-shrink-0 mt-0.5"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -387,11 +388,18 @@ export default function AboutPage() {
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                       />
                     </svg>
-                    <span>103 Medicentre, Durban Central</span>
+                    <div className="text-sm leading-relaxed">
+                      <p className="font-semibold text-base">Our Address:</p>
+                      <p>First Floor, Room 103</p>
+                      <p>74-78 Ismail C Meer St</p>
+                      <p>Durban Central, 4001</p>
+                      <p>South Africa</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
+
+                  <div className="flex items-start gap-3">
                     <svg
-                      className="h-6 w-6"
+                      className="h-6 w-6 flex-shrink-0 mt-0.5"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -403,11 +411,36 @@ export default function AboutPage() {
                         d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25Z"
                       />
                     </svg>
-                    <span>+27 31 309 8128</span>
+                    <div className="text-sm">
+                      <p className="font-semibold text-base">Contact Numbers:</p>
+                      <p>Phone: +27 31 309 8128</p>
+                      <p>WhatsApp: 079 687 8086</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
+
+                  <div className="flex items-start gap-3">
                     <svg
-                      className="h-6 w-6"
+                      className="h-6 w-6 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                      />
+                    </svg>
+                    <div className="text-sm">
+                      <p className="font-semibold text-base">Email Address:</p>
+                      <p className="underline">drbhatta.nd@gmail.com</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 border-t border-white/20 pt-4">
+                    <svg
+                      className="h-6 w-6 flex-shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -419,7 +452,9 @@ export default function AboutPage() {
                         d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Mon - Fri: 8:00 AM - 4:00 PM</span>
+                    <div className="text-sm">
+                      <p><span className="font-semibold">Hours:</span> Mon - Fri: 8:00 AM - 4:00 PM</p>
+                    </div>
                   </div>
                 </div>
               </div>
