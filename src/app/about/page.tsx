@@ -144,11 +144,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900">
-                Convenient Hours
+                Opening Hours
               </h3>
               <p className="mt-3 text-slate-600">
-                Open Monday through Friday from 8:00 AM to 4:00 PM, readily accommodating both 
-                walk-ins and time-allocated clinical visits.
+                Serving the community Monday through Friday from 9:30 AM to 3:30 PM, with dedicated 
+                weekend availability by scheduled appointment.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -438,9 +438,9 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 border-t border-white/20 pt-4">
+                  <div className="flex items-start gap-3 border-t border-white/20 pt-4">
                     <svg
-                      className="h-6 w-6 flex-shrink-0"
+                      className="h-6 w-6 flex-shrink-0 mt-0.5"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -453,7 +453,10 @@ export default function AboutPage() {
                       />
                     </svg>
                     <div className="text-sm">
-                      <p><span className="font-semibold">Hours:</span> Mon - Fri: 8:00 AM - 4:00 PM</p>
+                      <p className="font-semibold text-base">Opening Hours:</p>
+                      <p>Monday - Friday: 9:30 AM - 3:30 PM</p>
+                      <p>Saturday: With appointment only</p>
+                      <p>Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
