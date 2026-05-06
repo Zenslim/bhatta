@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +15,9 @@ const clinicGallery = [
 ];
 
 export default function GalleryPage() {
+  // Track which image is currently opened in full screen view
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <main className="bg-slate-50 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,7 +42,8 @@ export default function GalleryPage() {
             {clinicGallery.map((image) => (
               <figure
                 key={image.src}
-                className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+                onClick={() => setSelectedImage(image.src)}
               >
                 <div className="relative aspect-[4/3] bg-slate-100">
                   <Image
@@ -47,12 +54,47 @@ export default function GalleryPage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <figcaption className="px-4 py-3 text-sm text-slate-600">{image.alt}</figcaption>
+                <figcaption className="px-4 py-3 text-sm text-slate-600 font-medium transition-colors group-hover:text-[#005eb8]">
+                  {image.alt}
+                </figcaption>
               </figure>
             ))}
           </div>
         </section>
       </div>
+
+      {/* Pop-up Lightbox Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm transition-opacity duration-300"
+          onClick={() => setSelectedImage(null)} // Close modal when clicking dark backdrop
+        >
+          {/* Explicit Close Button */}
+          <button
+            className="absolute top-6 right-6 text-white/80 hover:text-white focus:outline-none transition-colors"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close interactive modal view"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Full Image Container Viewport */}
+          <div
+            className="relative max-h-[90vh] max-w-[95vw] sm:max-w-[90vw] overflow-hidden"
+            onClick={(e) => e.stopPropagation()} // Crucial: prevents image clicks from bubbling up to backdrop
+          >
+            {/* Using standard img for fluid full-viewport scaling without stretching constraints */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={selectedImage}
+              alt="Enlarged workspace clinic view"
+              className="mx-auto max-h-[85vh] rounded-lg object-contain shadow-2xl select-none"
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }
