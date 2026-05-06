@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Patient Resources | Dr N D Bhatta 103 Medicentre",
@@ -29,49 +30,10 @@ const responsibilities = [
   "Provide accurate medical information for safe treatment.",
 ];
 
-const handWashSteps = [
-  {
-    title: "Wet and soap",
-    body: "Wet hands with clean running water and apply soap.",
-    icon: "🚰",
-  },
-  { title: "Palm to palm", body: "Rub palms together.", icon: "👐" },
-  {
-    title: "Backs of hands",
-    body: "Rub one palm over the back of the other hand, then switch.",
-    icon: "↔️",
-  },
-  { title: "Between fingers", body: "Rub between fingers.", icon: "🤲" },
-  {
-    title: "Knuckles",
-    body: "Rub fingers and knuckles together.",
-    icon: "✊",
-  },
-  {
-    title: "Thumbs",
-    body: "Rub each thumb with the opposite palm, then switch.",
-    icon: "👍",
-  },
-  {
-    title: "Fingertips and nails",
-    body: "Rub fingertips and nails against the opposite palm, then switch.",
-    icon: "💅",
-  },
-  {
-    title: "Rinse and dry",
-    body: "Rinse with clean water and dry with a clean paper towel.",
-    icon: "🧻",
-  },
-  {
-    title: "Close tap safely",
-    body: "Use the paper towel to close the tap and avoid shared towels.",
-    icon: "✅",
-  },
-];
-
 export default function PatientResourcesPage() {
   return (
-    <div>
+    <div className="min-h-screen bg-slate-50/50">
+      {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#005eb8] to-[#00a499] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -79,15 +41,17 @@ export default function PatientResourcesPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-white/90">
             Important information for patients and families: your rights,
-            responsibilities, and practical hand hygiene guidance.
+            responsibilities, and official hand hygiene guidelines.
           </p>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
-          <article className="rounded-3xl bg-white p-8 shadow-md sm:p-10">
-            <div className="grid gap-8 lg:grid-cols-[1fr_240px] lg:items-center">
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
+          
+          {/* Section 1: Charter of Rights & Responsibilities */}
+          <article className="rounded-3xl bg-white p-8 shadow-sm border border-slate-100 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_240px] lg:items-center border-b border-slate-100 pb-8">
               <div>
                 <h2 className="text-3xl font-bold text-slate-900">Patients&apos; Rights Charter</h2>
                 <p className="mt-4 text-slate-600">
@@ -107,22 +71,26 @@ export default function PatientResourcesPage() {
 
             <div className="mt-8 grid gap-8 lg:grid-cols-2">
               <div>
-                <h3 className="text-xl font-semibold text-[#005eb8]">Your rights</h3>
+                <h3 className="text-xl font-bold text-[#005eb8] flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#005eb8]" /> Your Rights
+                </h3>
                 <ul className="mt-4 space-y-3">
                   {rights.map((right) => (
-                    <li key={right} className="flex gap-3 text-slate-700">
-                      <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-[#00a499]" />
+                    <li key={right} className="flex gap-3 text-slate-700 text-sm sm:text-base">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#00a499]" />
                       <span>{right}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[#005eb8]">Your responsibilities</h3>
+              <div className="border-t border-slate-100 pt-8 lg:border-t-0 lg:pt-0 lg:pl-8 lg:border-l">
+                <h3 className="text-xl font-bold text-[#005eb8] flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#00a499]" /> Your Responsibilities
+                </h3>
                 <ul className="mt-4 space-y-3">
                   {responsibilities.map((item) => (
-                    <li key={item} className="flex gap-3 text-slate-700">
-                      <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-[#005eb8]" />
+                    <li key={item} className="flex gap-3 text-slate-700 text-sm sm:text-base">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#005eb8]" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -131,56 +99,80 @@ export default function PatientResourcesPage() {
             </div>
           </article>
 
-          <article className="rounded-3xl bg-slate-50 p-8 shadow-md sm:p-10">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <h2 className="text-3xl font-bold text-slate-900">How to wash your hands</h2>
-              <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#00a499] text-center text-sm font-bold text-white">
-                40-60
-                <br />
-                sec
-              </div>
-            </div>
-            <p className="mt-4 text-slate-600">
-              Clean hands help prevent infection. Follow each step clearly and dry with a
-              clean paper towel.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {handWashSteps.map((step, index) => (
-                <div key={step.title} className="rounded-2xl border border-[#00a499]/20 bg-white p-5 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-[#005eb8]">Step {index + 1}</p>
-                    <span className="text-2xl" aria-hidden>
-                      {step.icon}
-                    </span>
-                  </div>
-                  <p className="mt-2 font-semibold text-slate-900">{step.title}</p>
-                  <p className="mt-1 text-slate-700">{step.body}</p>
+          {/* Section 2: How to Wash Hands Infographic Block */}
+          <article className="rounded-3xl bg-white p-8 shadow-sm border border-slate-100 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-5">
+                <h2 className="text-3xl font-bold text-slate-900 tracking-tight">How to Wash Your Hands</h2>
+                <p className="mt-4 text-slate-600 leading-relaxed">
+                  Clean hands help prevent infection. Follow the standard clinical sequence step-by-step to maintain proper clinical field safety.
+                </p>
+                <div className="mt-6 space-y-4 rounded-2xl bg-[#00a499]/5 p-5 border border-[#00a499]/10 text-sm text-slate-700">
+                  <p>• Wash visibly soiled hands with soap and water, otherwise use an alcohol-based hand rub.</p>
+                  <p>• Keep nails short and clean. Avoid artificial nails as they inhibit effective sanitation.</p>
+                  <p>• Thoroughly rub all areas for at least <strong>40-60 seconds</strong>.</p>
                 </div>
-              ))}
+              </div>
+              
+              {/* Infographic Container */}
+              <div className="lg:col-span-7 flex justify-center">
+                <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-slate-100 bg-white p-2 shadow-inner">
+                  <Image
+                    src="/images/hand-hygiene/how-to-wash-hands.jpg"
+                    alt="Official reference diagram for washing hands step by step"
+                    width={800}
+                    height={1131}
+                    className="h-auto w-full object-contain rounded-xl"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
           </article>
 
-          <article className="rounded-3xl bg-white p-8 shadow-md sm:p-10">
-            <h2 className="text-3xl font-bold text-slate-900">
-              Remember the 5 moments for hand hygiene
-            </h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              {[
-                "Before touching a patient.",
-                "Before doing a procedure.",
-                "After exposure to body fluids.",
-                "After touching a patient.",
-                "After touching patient surroundings.",
-              ].map((moment, index) => (
-                <li key={moment} className="flex items-start gap-4 rounded-xl bg-slate-50 p-4 list-none">
-                  <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#005eb8] text-sm font-bold text-white">
-                    {index + 1}
-                  </span>
-                  <span className="text-lg text-slate-700">{moment}</span>
-                </li>
-              ))}
+          {/* Section 3: The 5 Moments Framework Infographic Block */}
+          <article className="rounded-3xl bg-white p-8 shadow-sm border border-slate-100 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+              {/* Infographic Container (Ordered first on large viewports for visual layout variation) */}
+              <div className="lg:col-span-7 order-last lg:order-first flex justify-center">
+                <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-slate-100 bg-white p-2 shadow-inner">
+                  <Image
+                    src="/images/hand-hygiene/5-moments-hand-hygiene.jpg"
+                    alt="Official reference diagram for the 5 moments of hand hygiene workflow"
+                    width={800}
+                    height={1131}
+                    className="h-auto w-full object-contain rounded-xl"
+                  />
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
+                  The 5 Moments for Hand Hygiene
+                </h2>
+                <p className="mt-4 text-slate-600 leading-relaxed">
+                  Our clinic strictly complies with standard clinical point-of-care frameworks to minimize cross-contamination pathways within the immediate patient zone:
+                </p>
+                <ol className="mt-6 space-y-3.5">
+                  {[
+                    "Before touching a patient.",
+                    "Before doing a procedure.",
+                    "After exposure to body fluids.",
+                    "After touching a patient.",
+                    "After touching patient surroundings.",
+                  ].map((moment, index) => (
+                    <li key={index} className="flex items-center gap-4 text-slate-700 font-medium bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                      <span className="inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#005eb8] text-xs font-bold text-white shadow-sm">
+                        {index + 1}
+                      </span>
+                      <span>{moment}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </article>
+
         </div>
       </section>
     </div>
