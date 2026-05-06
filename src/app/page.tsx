@@ -57,6 +57,7 @@ const services = [
   },
 ];
 
+
 const features = [
   {
     title: "Medical Aid Accepted",
@@ -205,6 +206,42 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* Clinic Gallery Preview Section */}
+      <section className="bg-slate-50 py-16 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl bg-gradient-to-r from-[#005eb8] to-[#00a499] p-8 md:p-12 shadow-xl">
+            <div className="grid gap-6 md:grid-cols-3 md:items-center">
+              <div className="md:col-span-2 text-center md:text-left">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  Take a Tour of Our Facilities
+                </h2>
+                <p className="mt-3 text-lg text-white/90">
+                  View our warm reception workspace, modern consulting rooms, and fully equipped examination spaces designed for your comfort.
+                </p>
+              </div>
+              <div className="text-center md:text-right">
+                <Link
+                  href="/gallery"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#005eb8] shadow-md transition-all hover:bg-slate-100 hover:scale-105"
+                >
+                  View Clinic Gallery
+                  <svg
+                    className="ml-2 h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
