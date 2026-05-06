@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -77,7 +77,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* Phone & Messengers */}
                 <div className="flex gap-4">
                   <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-[#005eb8]/10 text-[#005eb8]">
                     <svg
@@ -96,18 +96,61 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900">
-                      Phone Number
+                      Contact Numbers
+                    </h3>
+                    <div className="mt-1 space-y-1 text-slate-600">
+                      <p>
+                        <span className="font-medium">Phone: </span>
+                        <a
+                          href="tel:+27313098128"
+                          className="text-[#005eb8] hover:underline"
+                        >
+                          +27 31 309 8128
+                        </a>
+                      </p>
+                      <p>
+                        <span className="font-medium">WhatsApp: </span>
+                        <a
+                          href="https://wa.me/27796878086"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#005eb8] hover:underline"
+                        >
+                          079 687 8086
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Email Address */}
+                <div className="flex gap-4">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-[#005eb8]/10 text-[#005eb8]">
+                    <svg
+                      className="h-7 w-7"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      Email Address
                     </h3>
                     <p className="mt-1 text-slate-600">
                       <a
-                        href="tel:+27313098128"
+                        href="mailto:drbhatta.nd@gmail.com"
                         className="text-[#005eb8] hover:underline"
                       >
-                        +27 31 309 8128
+                        drbhatta.nd@gmail.com
                       </a>
-                    </p>
-                    <p className="mt-1 text-sm text-slate-500">
-                      Click to call directly
                     </p>
                   </div>
                 </div>
@@ -136,11 +179,14 @@ export default function ContactPage() {
                     <div className="mt-1 space-y-1 text-slate-600">
                       <p>
                         <span className="font-medium">Monday - Friday:</span>{" "}
-                        8:00 AM - 4:00 PM
+                        9:30 AM - 3:30 PM
                       </p>
                       <p>
-                        <span className="font-medium">Saturday - Sunday:</span>{" "}
-                        Closed
+                        <span className="font-medium">Saturday:</span>{" "}
+                        With appointment only
+                      </p>
+                      <p>
+                        <span className="font-medium">Sunday:</span> Closed
                       </p>
                     </div>
                   </div>
