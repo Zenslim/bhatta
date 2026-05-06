@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const services = [
@@ -55,6 +56,17 @@ const services = [
     title: "Family Medicine",
     description: "Comprehensive healthcare for the whole family, from children to seniors.",
   },
+];
+
+
+const clinicGallery = [
+  { src: "/clinic-gallery/entrance-corridor.jpg", alt: "Main building corridor leading to the clinic" },
+  { src: "/clinic-gallery/clinic-entrance.jpg", alt: "Entrance door for Dr Bhatta General Practitioner rooms" },
+  { src: "/clinic-gallery/reception-waiting-area.jpg", alt: "Clinic reception and patient seating area" },
+  { src: "/clinic-gallery/reception-front-desk.jpg", alt: "Front desk view of the reception workspace" },
+  { src: "/clinic-gallery/reception-workstation.jpg", alt: "Reception workstation and seating" },
+  { src: "/clinic-gallery/consultation-room.jpg", alt: "Doctor consultation room" },
+  { src: "/clinic-gallery/examination-room.jpg", alt: "Examination room with patient bed" },
 ];
 
 const features = [
@@ -204,6 +216,37 @@ export default function Home() {
                   <p className="text-sm text-slate-600">{feature.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* Clinic Gallery */}
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Inside Our Clinic
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+              Take a quick look at our reception, consultation, and examination spaces.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {clinicGallery.map((image) => (
+              <figure key={image.src} className="overflow-hidden rounded-2xl bg-white shadow-md">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+              </figure>
             ))}
           </div>
         </div>
