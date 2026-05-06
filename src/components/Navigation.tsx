@@ -9,7 +9,7 @@ const navigation = [
   { name: "About Dr Bhatta", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Patient Resources", href: "/patient-resources" },
-  { name: "View Clinic Gallery", href: "https://www.drbhatta.co.za/gallery/" },
+  { name: "Clinic Gallery", href: "https://www.drbhatta.co.za/gallery/" },
   { name: "Contact", href: "/contact" },
 ];
 
