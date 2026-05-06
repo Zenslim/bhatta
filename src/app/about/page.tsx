@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Dr N D Bhatta | GP Practice Durban",
-  description: "Learn about Dr Nirjhar Dev Bhatta and the 103 Medicentre team. Quality healthcare services in Durban Central.",
+  title: "About Our Practice | 103 Medicentre Durban",
+  description: "Learn about our dedicated medical team and quality healthcare services in Durban Central. Welcoming both walk-ins and scheduled appointments.",
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
               About Our Practice
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-white/90">
-              Providing quality healthcare to the Durban community for years
+              Providing comprehensive, accessible, and compassionate healthcare to the Durban community.
             </p>
           </div>
         </div>
@@ -28,31 +28,31 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Dr Nirjhar Dev Bhatta
+                Our Medical Team
               </h2>
               <p className="mt-4 text-lg font-medium text-[#005eb8]">
-                General Practitioner
+                Patient-Centered General Practice
               </p>
               <div className="mt-6 space-y-4 text-slate-600">
                 <p>
-                  Dr Nirjhar Dev Bhatta is a dedicated General Practitioner serving
-                  the Durban community from our practice at 103 Medicentre. With a
-                  commitment to providing comprehensive, patient-centered healthcare,
-                  Dr Bhatta has built a reputation for delivering quality medical
-                  services to patients of all ages.
+                  Operating from our primary facility at 103 Medicentre, our practice is 
+                  built on a foundation of quality medical services tailored for patients 
+                  of all ages. We understand that clinical excellence goes hand-in-hand 
+                  with accessibility, which is why we structure our care around the 
+                  dynamic needs of the Durban Central community.
                 </p>
                 <p>
-                  Our practice welcomes both patients with appointments and walk-in
-                  visitors, ensuring that everyone has access to timely medical care
-                  when they need it most. We accept most medical aid schemes and
-                  strive to make healthcare accessible and affordable for our
-                  community.
+                  To ensure that reliable medical attention is available when you need it 
+                  most, our doors are open to both pre-booked appointments and walk-in 
+                  visitors. We work diligently to reduce barriers to care by accepting 
+                  the majority of medical aid schemes in South Africa, alongside competitive 
+                  private rates.
                 </p>
                 <p>
-                  At 103 Medicentre, we believe in treating the whole person, not just
-                  the symptoms. Our approach combines medical expertise with genuine
-                  compassion, creating a welcoming environment where patients feel
-                  comfortable discussing their health concerns.
+                  At 103 Medicentre, our clinical approach looks past isolated symptoms to 
+                  treat the individual as a whole. By balancing meticulous medical expertise 
+                  with genuine empathy, we maintain a welcoming environment where you can 
+                  discuss your health concerns with complete confidence.
                 </p>
               </div>
             </div>
@@ -76,10 +76,10 @@ export default function AboutPage() {
                           />
                         </svg>
                       </div>
-                      <p className="text-2xl font-bold">Dr Nirjhar Dev Bhatta</p>
-                      <p className="mt-2 text-white/80">General Practitioner</p>
+                      <p className="text-2xl font-bold">103 Medicentre</p>
+                      <p className="mt-2 text-white/80">General Practitioner Services</p>
                       <p className="mt-4 text-sm text-white/60">
-                        MBChB (Bachelor of Medicine and Bachelor of Surgery)
+                        Comprehensive Family Medicine & Primary Healthcare
                       </p>
                     </div>
                   </div>
@@ -98,8 +98,7 @@ export default function AboutPage() {
               Why Choose Our Practice
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-slate-600 mx-auto">
-              We are committed to providing the highest quality healthcare services
-              to our patients
+              We are dedicated to delivering reliable, professional healthcare standards for you and your family.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -123,8 +122,8 @@ export default function AboutPage() {
                 Patient-Centered Care
               </h3>
               <p className="mt-3 text-slate-600">
-                We take the time to listen to our patients and understand their
-                individual needs, providing personalized healthcare solutions.
+                We spend individual time listening to our patients to accurately track history 
+                and construct custom healthcare tracks.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -147,8 +146,8 @@ export default function AboutPage() {
                 Convenient Hours
               </h3>
               <p className="mt-3 text-slate-600">
-                Our practice is open Monday to Friday from 8:00 AM to 4:00 PM,
-                with walk-in appointments available for your convenience.
+                Open Monday through Friday from 8:00 AM to 4:00 PM, readily accommodating both 
+                walk-ins and time-allocated clinical visits.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -171,8 +170,8 @@ export default function AboutPage() {
                 Quality Assured
               </h3>
               <p className="mt-3 text-slate-600">
-                Our practice maintains high standards of medical care and is
-                dedicated to continuous improvement in healthcare delivery.
+                We stringently maintain rigorous hygiene, diagnostic tracking, and clean diagnostic 
+                environments for pristine local healthcare delivery.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -195,8 +194,8 @@ export default function AboutPage() {
                 Medical Aid Accepted
               </h3>
               <p className="mt-3 text-slate-600">
-                We work with most major medical aid schemes in South Africa to
-                ensure our services are accessible to everyone.
+                Direct integration with key South African medical aids ensures seamless claim submissions 
+                and minimal stress for families.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -219,8 +218,8 @@ export default function AboutPage() {
                 Accessible Facility
               </h3>
               <p className="mt-3 text-slate-600">
-                Our practice is fully wheelchair accessible, and we have parking
-                available at City Hospital across the street.
+                Fully optimized wheelchair access combined with secure parking facilities across the street 
+                at City Hospital.
               </p>
             </div>
             <div className="rounded-2xl bg-white p-8 shadow-md">
@@ -243,8 +242,8 @@ export default function AboutPage() {
                 Family Medicine
               </h3>
               <p className="mt-3 text-slate-600">
-                We provide comprehensive healthcare services for the whole family,
-                from children to seniors.
+                Comprehensive therapeutic coverage spanning early pediatrics to senior lifestyle care and 
+                chronic illness management.
               </p>
             </div>
           </div>
@@ -281,8 +280,7 @@ export default function AboutPage() {
                       Compassion
                     </h3>
                     <p className="mt-1 text-slate-600">
-                      We treat every patient with empathy and understanding,
-                      creating a supportive environment for healing.
+                      We treat every patient with empathy and understanding, creating a supportive environment for healing.
                     </p>
                   </div>
                 </div>
@@ -307,8 +305,7 @@ export default function AboutPage() {
                       Excellence
                     </h3>
                     <p className="mt-1 text-slate-600">
-                      We are committed to maintaining the highest standards of
-                      medical care and continuously improving our services.
+                      We are committed to maintaining the highest standards of medical care and continuously improving our services.
                     </p>
                   </div>
                 </div>
@@ -333,8 +330,7 @@ export default function AboutPage() {
                       Respect
                     </h3>
                     <p className="mt-1 text-slate-600">
-                      We respect the dignity and privacy of every patient,
-                      providing confidential and personalized care.
+                      We respect the dignity and privacy of every patient, providing confidential and personalized care.
                     </p>
                   </div>
                 </div>
@@ -359,8 +355,7 @@ export default function AboutPage() {
                       Accessibility
                     </h3>
                     <p className="mt-1 text-slate-600">
-                      We strive to make healthcare accessible to all, offering
-                      flexible appointment options and convenient location.
+                      We strive to make healthcare accessible to all, offering flexible appointment options and a convenient location.
                     </p>
                   </div>
                 </div>
@@ -370,9 +365,7 @@ export default function AboutPage() {
               <div className="rounded-2xl bg-gradient-to-br from-[#005eb8] to-[#00a499] p-8 text-white">
                 <h3 className="text-2xl font-bold">Visit Us Today</h3>
                 <p className="mt-4 text-white/90">
-                  We welcome both appointments and walk-in patients. Contact us
-                  to schedule your consultation or simply visit our practice
-                  during operating hours.
+                  We welcome both appointments and walk-in patients. Contact us to schedule your consultation or simply visit our practice during operating hours.
                 </p>
                 <div className="mt-8 space-y-4">
                   <div className="flex items-center gap-3">
