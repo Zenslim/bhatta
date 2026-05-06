@@ -9,6 +9,7 @@ const navigation = [
   { name: "About Dr Bhatta", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Patient Resources", href: "/patient-resources" },
+  { name: "View Clinic Gallery", href: "https://www.drbhatta.co.za/gallery/" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -49,19 +50,26 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                    pathname === item.href
-                      ? "bg-[#005eb8] text-white"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-[#005eb8]"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const isExternal = item.href.startsWith("http");
+                const isActive = pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-[#005eb8] text-white"
+                        : "text-slate-700 hover:bg-slate-100 hover:text-[#005eb8]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -138,20 +146,27 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden" id="mobile-menu">
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`block rounded-md px-3 py-2 text-base font-medium ${
-                    pathname === item.href
-                      ? "bg-[#005eb8] text-white"
-                      : "text-slate-700 hover:bg-slate-100"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const isExternal = item.href.startsWith("http");
+                const isActive = pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className={`block rounded-md px-3 py-2 text-base font-medium ${
+                      isActive
+                        ? "bg-[#005eb8] text-white"
+                        : "text-slate-700 hover:bg-slate-100"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <a
                 href="tel:+27313098128"
                 className="mt-4 block rounded-md bg-[#00a499] px-3 py-3 text-center text-base font-semibold text-white"
