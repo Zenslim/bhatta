@@ -38,9 +38,9 @@ export default function Navigation() {
                   />
                 </svg>
               </div>
-              <div className="hidden sm:block">
-                <span className="text-xl font-bold text-[#005eb8]">Dr N D Bhatta</span>
-                <span className="block text-xs text-slate-500">103 Medicentre</span>
+              <div className="min-w-0">
+                <span className="block truncate text-base font-bold text-[#005eb8] sm:text-xl">Dr N D Bhatta</span>
+                <span className="block text-[11px] text-slate-500 sm:text-xs">103 Medicentre</span>
               </div>
             </Link>
           </div>
