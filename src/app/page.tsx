@@ -58,7 +58,6 @@ const services = [
   },
 ];
 
-
 const features = [
   {
     title: "Medical Aid Accepted",
@@ -99,13 +98,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="animate-fade-in-up text-center lg:text-left">
-              <div className="inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
-                <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.50 9.166a.75.75 0 00-1.45.388l3.35 5.853a.75.75 0 001.278-.577l-3.35-5.853a.75.75 0 00-.178-.388zM10.5 9.166a.75.75 0 00-1.45.388l3.35 5.853a.75.75 0 001.278-.577l-3.35-5.853a.75.75 0 00-.178-.388z" clipRule="evenodd" />
-                </svg>
-                Open Mon - Fri: 8:00 AM - 4:00 PM
-              </div>
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Your Trusted GP in{" "}
                 <span className="text-[#facc15]">Durban Central</span>
               </h1>
