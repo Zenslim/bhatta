@@ -234,10 +234,16 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="mt-8 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
+            If images are not visible yet, please upload them to
+            <code className="mx-1 rounded bg-slate-100 px-1 py-0.5">public/clinic-gallery/</code>
+            with the filenames defined in the gallery list.
+          </div>
+
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {clinicGallery.map((image) => (
               <figure key={image.src} className="overflow-hidden rounded-2xl bg-white shadow-md">
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-[4/3] bg-slate-100">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -246,6 +252,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
+                <figcaption className="px-4 py-3 text-sm text-slate-600">{image.alt}</figcaption>
               </figure>
             ))}
           </div>
