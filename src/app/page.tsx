@@ -59,16 +59,6 @@ const services = [
 ];
 
 
-const clinicGallery = [
-  { src: "/clinic-gallery/entrance-corridor.jpg", alt: "Main building corridor leading to the clinic" },
-  { src: "/clinic-gallery/clinic-entrance.jpg", alt: "Entrance door for Dr Bhatta General Practitioner rooms" },
-  { src: "/clinic-gallery/reception-waiting-area.jpg", alt: "Clinic reception and patient seating area" },
-  { src: "/clinic-gallery/reception-front-desk.jpg", alt: "Front desk view of the reception workspace" },
-  { src: "/clinic-gallery/reception-workstation.jpg", alt: "Reception workstation and seating" },
-  { src: "/clinic-gallery/consultation-room.jpg", alt: "Doctor consultation room" },
-  { src: "/clinic-gallery/examination-room.jpg", alt: "Examination room with patient bed" },
-];
-
 const features = [
   {
     title: "Medical Aid Accepted",
@@ -222,39 +212,37 @@ export default function Home() {
       </section>
 
 
-      {/* Clinic Gallery */}
-      <section className="bg-slate-50 py-20">
+      {/* Clinic Gallery Preview Section */}
+      <section className="bg-slate-50 py-16 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Inside Our Clinic
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-              Take a quick look at our reception, consultation, and examination spaces.
-            </p>
-          </div>
-
-          <div className="mt-8 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
-            If images are not visible yet, please upload them to
-            <code className="mx-1 rounded bg-slate-100 px-1 py-0.5">public/clinic-gallery/</code>
-            with the filenames defined in the gallery list.
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {clinicGallery.map((image) => (
-              <figure key={image.src} className="overflow-hidden rounded-2xl bg-white shadow-md">
-                <div className="relative aspect-[4/3] bg-slate-100">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="px-4 py-3 text-sm text-slate-600">{image.alt}</figcaption>
-              </figure>
-            ))}
+          <div className="rounded-2xl bg-gradient-to-r from-[#005eb8] to-[#00a499] p-8 md:p-12 shadow-xl">
+            <div className="grid gap-6 md:grid-cols-3 md:items-center">
+              <div className="md:col-span-2 text-center md:text-left">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  Take a Tour of Our Facilities
+                </h2>
+                <p className="mt-3 text-lg text-white/90">
+                  View our warm reception workspace, modern consulting rooms, and fully equipped examination spaces designed for your comfort.
+                </p>
+              </div>
+              <div className="text-center md:text-right">
+                <Link
+                  href="/gallery"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-[#005eb8] shadow-md transition-all hover:bg-slate-100 hover:scale-105"
+                >
+                  View Clinic Gallery
+                  <svg
+                    className="ml-2 h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
