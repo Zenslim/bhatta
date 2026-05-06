@@ -8,6 +8,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About Dr Bhatta", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "Patient Resources", href: "/patient-resources" },
   { name: "Contact", href: "/contact" },
 ];
 
