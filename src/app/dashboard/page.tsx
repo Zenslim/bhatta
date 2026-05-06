@@ -5,7 +5,7 @@ type Patient = { id: string; full_name: string; date_of_birth: string | null; se
 type Encounter = { id: string; patient_id: string; encounter_date: string; notes: string | null };
 type Vital = { id: string; patient_id: string; recorded_at: string; systolic_bp: number | null; diastolic_bp: number | null; weight_kg: number | null; height_cm: number | null; waist_cm: number | null };
 type Lab = { id: string; patient_id: string; recorded_at: string; fasting_glucose_mg_dl: number | null; fasting_insulin_uiu_ml: number | null; triglycerides_mg_dl: number | null; hdl_mg_dl: number | null; hba1c_percent: number | null; urine_protein_mg_dl: number | null; urine_creatinine_mg_dl: number | null };
-type HealthIndex = { patient_id: string; bmi: number | null; homa_ir: number | null; tg_hdl_ratio: number | null; tyg_index: number | null; aip: number | null; eag_mg_dl: number | null; upcr: number | null; waist_height_ratio: number | null; egfr: number | null; bai: number | null; vai_female: number | null; vai_male: number | null; lap_female: number | null; lap_male: number | null; fli: number | null; computed_at: string };
+type HealthIndex = { patient_id: string; bmi: number | null; homa_ir: number | null; tg_hdl_ratio: number | null; tyg_index: number | null; aip: number | null; eag_mg_dl: number | null; upcr: number | null; waist_height_ratio: number | null; computed_at: string };
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -17,7 +17,7 @@ export default async function DashboardPage() {
     supabase.from("encounters").select("id,patient_id,encounter_date,notes").order("encounter_date", { ascending: false }).limit(20),
     supabase.from("vitals").select("id,patient_id,recorded_at,systolic_bp,diastolic_bp,weight_kg,height_cm,waist_cm").order("recorded_at", { ascending: false }).limit(20),
     supabase.from("labs").select("id,patient_id,recorded_at,fasting_glucose_mg_dl,fasting_insulin_uiu_ml,triglycerides_mg_dl,hdl_mg_dl,hba1c_percent,urine_protein_mg_dl,urine_creatinine_mg_dl").order("recorded_at", { ascending: false }).limit(20),
-    supabase.from("health_indices").select("patient_id,bmi,homa_ir,tg_hdl_ratio,tyg_index,aip,eag_mg_dl,upcr,waist_height_ratio,egfr,bai,vai_female,vai_male,lap_female,lap_male,fli,computed_at").order("computed_at", { ascending: false }).limit(20),
+    supabase.from("health_indices").select("patient_id,bmi,homa_ir,tg_hdl_ratio,tyg_index,aip,eag_mg_dl,upcr,waist_height_ratio,computed_at").order("computed_at", { ascending: false }).limit(20),
   ]);
 
   const errors = [patientsError, encountersError, vitalsError, labsError, indicesError].filter(Boolean);
@@ -31,7 +31,7 @@ export default async function DashboardPage() {
         <Grid title="Encounters" rows={(encounters ?? []) as Encounter[]} render={(e) => <><td className='p-2'>{e.patient_id.slice(0,8)}</td><td className='p-2'>{e.encounter_date}</td><td className='p-2'>{e.notes ?? "-"}</td></>} headers={["Patient","Date","Notes"]} />
         <Grid title="Vitals" rows={(vitals ?? []) as Vital[]} render={(v) => <><td className='p-2'>{v.patient_id.slice(0,8)}</td><td className='p-2'>{v.recorded_at}</td><td className='p-2'>{v.systolic_bp ?? "-"}/{v.diastolic_bp ?? "-"}</td><td className='p-2'>{v.weight_kg ?? "-"}</td></>} headers={["Patient","Recorded","BP","Weight"]} />
         <Grid title="Labs" rows={(labs ?? []) as Lab[]} render={(l) => <><td className='p-2'>{l.patient_id.slice(0,8)}</td><td className='p-2'>{l.recorded_at}</td><td className='p-2'>{l.fasting_glucose_mg_dl ?? "-"}</td><td className='p-2'>{l.hba1c_percent ?? "-"}</td></>} headers={["Patient","Recorded","Glucose","HbA1c"]} />
-        <Grid title="Health indices" rows={(indices ?? []) as HealthIndex[]} render={(i) => <><td className='p-2'>{i.patient_id.slice(0,8)}</td><td className='p-2'>{i.bmi?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.homa_ir?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.tg_hdl_ratio?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.tyg_index?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.egfr?.toFixed(1) ?? "-"}</td><td className='p-2'>{i.bai?.toFixed(2) ?? "-"}</td><td className='p-2'>{(i.vai_female ?? i.vai_male)?.toFixed(2) ?? "-"}</td><td className='p-2'>{(i.lap_female ?? i.lap_male)?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.fli?.toFixed(1) ?? "-"}</td></>} headers={["Patient","BMI","HOMA-IR","TG/HDL","TyG","eGFR","BAI","VAI","LAP","FLI"]} />
+        <Grid title="Health indices" rows={(indices ?? []) as HealthIndex[]} render={(i) => <><td className='p-2'>{i.patient_id.slice(0,8)}</td><td className='p-2'>{i.bmi?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.homa_ir?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.tg_hdl_ratio?.toFixed(2) ?? "-"}</td><td className='p-2'>{i.tyg_index?.toFixed(2) ?? "-"}</td></>} headers={["Patient","BMI","HOMA-IR","TG/HDL","TyG"]} />
       </div>
     </section>
   );

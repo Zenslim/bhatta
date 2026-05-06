@@ -27,8 +27,7 @@ create table if not exists public.vitals (
   diastolic_bp numeric,
   weight_kg numeric,
   height_cm numeric,
-  waist_cm numeric,
-  hip_cm numeric
+  waist_cm numeric
 );
 
 create table if not exists public.labs (
@@ -42,15 +41,10 @@ create table if not exists public.labs (
   hdl_mg_dl numeric,
   hba1c_percent numeric,
   urine_protein_mg_dl numeric,
-  urine_creatinine_mg_dl numeric,
-  serum_creatinine_mg_dl numeric,
-  alt_u_l numeric,
-  ast_u_l numeric,
-  ggt_u_l numeric
+  urine_creatinine_mg_dl numeric
 );
 
-create or replace view public.health_indices
-with (security_invoker = true) as
+create or replace view public.health_indices as
 select
   p.owner_id,
   p.id as patient_id,
@@ -62,21 +56,7 @@ select
   case when l.triglycerides_mg_dl > 0 and l.hdl_mg_dl > 0 then log(l.triglycerides_mg_dl / l.hdl_mg_dl) end as aip,
   case when l.hba1c_percent is not null then (28.7 * l.hba1c_percent) - 46.7 end as eag_mg_dl,
   case when l.urine_creatinine_mg_dl > 0 and l.urine_protein_mg_dl is not null then l.urine_protein_mg_dl / l.urine_creatinine_mg_dl end as upcr,
-  case when v.height_cm > 0 and v.waist_cm is not null then v.waist_cm / v.height_cm end as waist_height_ratio,
-  case when l.serum_creatinine_mg_dl > 0 and p.date_of_birth is not null and p.sex in ('male','female') then
-    142 * power(least(l.serum_creatinine_mg_dl / (case when p.sex='female' then 0.7 else 0.9 end), 1), case when p.sex='female' then -0.241 else -0.302 end)
-        * power(greatest(l.serum_creatinine_mg_dl / (case when p.sex='female' then 0.7 else 0.9 end), 1), -1.2)
-        * power(0.9938, extract(year from age(current_date, p.date_of_birth)))
-        * (case when p.sex='female' then 1.012 else 1 end)
-  end as egfr,
-  case when v.hip_cm > 0 and v.height_cm > 0 then ((v.hip_cm / power(v.height_cm / 100.0, 1.5)) - 18) end as bai,
-  case when v.waist_cm > 0 and l.triglycerides_mg_dl > 0 and l.hdl_mg_dl > 0 and p.sex='female' then ((v.waist_cm / (36.58 + (1.89 * (v.weight_kg / power(v.height_cm/100.0,2))))) * (l.triglycerides_mg_dl / 0.81) * (1.52 / l.hdl_mg_dl)) end as vai_female,
-  case when v.waist_cm > 0 and l.triglycerides_mg_dl > 0 and l.hdl_mg_dl > 0 and p.sex='male' then ((v.waist_cm / (39.68 + (1.88 * (v.weight_kg / power(v.height_cm/100.0,2))))) * (l.triglycerides_mg_dl / 1.03) * (1.31 / l.hdl_mg_dl)) end as vai_male,
-  case when p.sex='male' and v.waist_cm > 65 and l.triglycerides_mg_dl is not null then (v.waist_cm - 65) * l.triglycerides_mg_dl end as lap_male,
-  case when p.sex='female' and v.waist_cm > 58 and l.triglycerides_mg_dl is not null then (v.waist_cm - 58) * l.triglycerides_mg_dl end as lap_female,
-  case when l.triglycerides_mg_dl > 0 and (v.weight_kg / power(v.height_cm/100.0,2)) > 0 and l.ggt_u_l is not null and v.waist_cm is not null then
-    (exp(0.953 * ln(l.triglycerides_mg_dl) + 0.139 * (v.weight_kg / power(v.height_cm/100.0,2)) + 0.718 * ln(l.ggt_u_l) + 0.053 * v.waist_cm - 15.745) / (1 + exp(0.953 * ln(l.triglycerides_mg_dl) + 0.139 * (v.weight_kg / power(v.height_cm/100.0,2)) + 0.718 * ln(l.ggt_u_l) + 0.053 * v.waist_cm - 15.745))) * 100
-  end as fli
+  case when v.height_cm > 0 and v.waist_cm is not null then v.waist_cm / v.height_cm end as waist_height_ratio
 from public.patients p
 left join lateral (
   select * from public.vitals v where v.patient_id = p.id order by v.recorded_at desc limit 1
